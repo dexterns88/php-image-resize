@@ -103,7 +103,7 @@ class ImageResize
     // http://stackoverflow.com/a/28819866
     public function imageCreateJpegfromExif($filename){
       $img = imagecreatefromjpeg($filename);
-      $exif = exif_read_data($filename);
+      $exif = @exif_read_data($filename);
       
       if (!$exif || !isset($exif['Orientation'])){
         return $img;
